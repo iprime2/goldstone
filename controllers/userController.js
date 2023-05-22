@@ -1,4 +1,4 @@
-const User = require('../model/User')
+const { User } = require('../model/User')
 const { StatusCodes } = require('http-status-codes')
 
 const createUser = async (req, res) => {
