@@ -4,6 +4,7 @@ const { StatusCodes } = require('http-status-codes')
 const createUser = async (req, res) => {
   const { id, name, email, gender, status } = req.body
   try {
+    console.log('hello')
     const newUser = await User.create({
       id,
       name,

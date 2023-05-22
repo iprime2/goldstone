@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
-const { StatusCodes } = require('http-status-codes')
+const cors = require('cors')
+const mongoose = require('mongoose')
 
 dotenv.config()
 
@@ -11,12 +12,12 @@ const connectDB = require('./db/dbConnect')
 const usersRoute = require('./routes/users')
 
 app.use(express.json())
-
+app.use(cors())
 app.use('/api/users', usersRoute)
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URL)
+    await mongoose.connect(process.env.MONGO_URL)
     app.listen(process.env.PORT || 8000, () => {
       console.log('Server is running on : ' + process.env.PORT)
     })
