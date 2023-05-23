@@ -18,7 +18,7 @@ const connectDB = require('./db/dbConnect')
 const usersRoute = require('./routes/users')
 
 app.use(express.json())
-app.use(cors(corsOptions))
+app.use(cors())
 app.use('/api/users', usersRoute)
 
 const start = async () => {
