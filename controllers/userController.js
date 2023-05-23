@@ -4,7 +4,6 @@ const { StatusCodes } = require('http-status-codes')
 const createUser = async (req, res) => {
   const { id, name, email, gender, status } = req.body
   try {
-    console.log('hello')
     const newUser = await User.create({
       id,
       name,
@@ -14,9 +13,8 @@ const createUser = async (req, res) => {
     })
 
     // await newUser.save()
-    console.log(newUser)
     // const savedUser = await newUser.save()
-    res.status(StatusCodes.CREATED).json(savedUser)
+    res.status(StatusCodes.CREATED).json(newUser)
   } catch (error) {
     res.status(StatusCodes.BAD_REQUEST).json(error)
   }
@@ -24,7 +22,6 @@ const createUser = async (req, res) => {
 
 const getUsers = async (req, res) => {
   try {
-    console.log('hello')
     const users = await User.find()
 
     if (!users) {
@@ -40,7 +37,7 @@ const getUsers = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-  const id = req.params
+  const { id } = req.params
 
   if (!id) {
     return res.status(StatusCodes.BAD_REQUEST).json({

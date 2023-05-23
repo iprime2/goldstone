@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema(
   {
     id: {
-      type: String,
+      type: Number,
       required: true,
       unique: true,
     },
@@ -19,10 +19,12 @@ const UserSchema = new mongoose.Schema(
     gender: {
       type: String,
       required: true,
+      enum: ['male', 'female'],
     },
     status: {
       type: String,
       required: true,
+      enum: ['active', 'inactive'],
     },
   },
   { timestamp: true }
@@ -30,4 +32,4 @@ const UserSchema = new mongoose.Schema(
 
 const User = mongoose.model('User', UserSchema)
 
-module.export = { User }
+module.exports = { User }

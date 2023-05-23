@@ -6,13 +6,19 @@ const mongoose = require('mongoose')
 
 dotenv.config()
 
+const corsOptions = {
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+}
+
 const connectDB = require('./db/dbConnect')
 
 //routes
 const usersRoute = require('./routes/users')
 
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
 app.use('/api/users', usersRoute)
 
 const start = async () => {
