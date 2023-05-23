@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 dotenv.config()
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: ['http://localhost:3000', 'https://goldstone.on.fleek.co'],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 }
