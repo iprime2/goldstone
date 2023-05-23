@@ -21,7 +21,7 @@ Here is an example:
 
 To update user 
 
-PUT Method: https://goldstone-api.onrender.com/api/users
+PUT Method: https://goldstone-api.onrender.com/api/users/:id
  
  
 
